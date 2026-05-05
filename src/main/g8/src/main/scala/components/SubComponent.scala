@@ -17,7 +17,7 @@ object SubComponent extends BaseComponent {
     ComponentManager { implicit cm =>
       // language=html
       s"""<div style="background-color: mediumpurple; padding: 5px;">
-         |    Sub Component: ${txtInputC(ms.name)}
+         |    Sub Component: \${txtInputC(ms.name)}
          |</div>
          |""".stripMargin
     }

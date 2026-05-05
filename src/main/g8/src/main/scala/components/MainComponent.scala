@@ -26,8 +26,8 @@ object MainComponent extends BaseComponent {
       val humans = forC(ms.humans) { implicit (cm, human, i) =>
         // language=html
         s"""<tr>
-           |  <td>$i</td>
-           |  <td>${human.name}</td>
+           |  <td>\$i</td>
+           |  <td>\${human.name}</td>
            |</tr>
            |""".stripMargin
       }
@@ -38,38 +38,38 @@ object MainComponent extends BaseComponent {
       // language=html
       s"""<div style="background-color: deepskyblue; padding: 5px;">
          |    <h1>Humans</h1>
-         |    <table ${showIf(nonEmpty)}>
+         |    <table \${showIf(nonEmpty)}>
          |      <theasd>
          |          <th>No.</th>
          |          <th>Name</th>
          |      </theasd>
          |      <tbody>
-         |        $humans
+         |        \$humans
          |      </tbody>
          |    </table>
          |
-         |    <div ${showIf(isEmpty)}>
+         |    <div \${showIf(isEmpty)}>
          |        Empty...
          |    </div>
          |    
          |    <hr>
          |    
          |    <div>
-         |        Input Human Name: ${txtC(ms.name)}
+         |        Input Human Name: \${txtC(ms.name)}
          |    </div>
          |    <div>    
-         |        ${%(SubComponent(ms))}
+         |        \${%(SubComponent(ms))}
          |    </div>
          |    
          |
-         |    <button ${evClick(addHuman(ms))}>Add Human</button>
+         |    <button \${evClick(addHuman(ms))}>Add Human</button>
          |    
          |    <hr>
          |    <hr>
          |    
          |    <h1>Rendering HTML</h1> 
-         |    ${txtInputC(ms.html)}
-         |    ${htmlC(ms.html)}
+         |    \${txtInputC(ms.html)}
+         |    \${htmlC(ms.html)}
          |    
          |    <hr>
          |    <hr>
