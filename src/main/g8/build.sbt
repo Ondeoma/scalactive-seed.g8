@@ -12,6 +12,6 @@ lazy val root = (project in file("."))
       _.withModuleKind(ModuleKind.ESModule)
     },
     libraryDependencies ++= Seq(
-      "io.github.ondeoma" %%% "scalactive" % "0.1.9",
+      "io.github.ondeoma" %%% "scalactive" % "0.1.12",
     )
   )

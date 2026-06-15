@@ -10,17 +10,16 @@ object SubComponent extends BaseComponent {
   def apply(ms: MainState)
            (implicit parent: HTMLElement,
             am: AddMethod): NodesComponentController = {
-    mkSimpleHtmlEsCC(genElement(ms))
+    mkNCC(genElement(ms))
   }
 
-  private def genElement(ms: MainState) = {
-    ComponentManager { implicit cm =>
-      // language=html
-      s"""<div style="background-color: mediumpurple; padding: 5px;">
-         |    Sub Component: \${txtInputC(ms.name)}
-         |</div>
-         |""".stripMargin
-    }
+  private def genElement(ms: MainState)
+                        (implicit cm: ComponentManager): HTML = {
+    // language=html
+    s"""<div style="background-color: mediumpurple; padding: 5px;">
+       |    Sub Component: \${txtInputC(ms.name)}
+       |</div>
+       |""".stripMargin
   }
-  
+
 }
