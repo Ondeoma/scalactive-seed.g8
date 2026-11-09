@@ -4,7 +4,8 @@ ThisBuild / scalaVersion := "3.3.7"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
 lazy val root = (project in file("."))
-  .enablePlugins(ScalaJSPlugin)
+  // ScalactivePlugin: src/main/scalactive 配下の .st(単一ファイルコンポーネント)をScalaのソースに変換します.
+  .enablePlugins(ScalaJSPlugin, ScalactivePlugin)
   .settings(
     name := "$name$",
     scalaJSUseMainModuleInitializer := true,
@@ -12,6 +13,6 @@ lazy val root = (project in file("."))
       _.withModuleKind(ModuleKind.ESModule)
     },
     libraryDependencies ++= Seq(
-      "io.github.ondeoma" %%% "scalactive" % "0.1.15",
+      "io.github.ondeoma" %%% "scalactive" % "$scalactive_version$",
     )
   )
