@@ -39,13 +39,21 @@ On first startup, run the following command to install npm packages.
 npm install
 ```
 
-以下を2つのターミナルでそれぞれ起動します。
+以下で開発サーバーを起動します。
 
-Run the following commands in two separate terminals.
+Run the following command to start the development server.
 
 ```
-sbt ~fastLinkJS
+npm run dev
 ```
+
+Viteの開発サーバーと `sbt ~fastLinkJS` を一緒に起動します(`dev.mjs`)。
+Scalaや `.st` のファイルを保存すると、JSが作り直され、ブラウザが自動で再読み込みされます。
+止めるときは Ctrl+C を押します(両方とも止まります)。
+
+This starts the Vite dev server together with `sbt ~fastLinkJS` (see `dev.mjs`).
+When you save a Scala or `.st` file, the JS is rebuilt and the browser reloads automatically.
+Press Ctrl+C to stop both.
 
 ※時折記述が正しくてもコンパイルエラーが出るような気がします。  
 不調な時は一度停止して再起動等をお試しください。
@@ -53,9 +61,9 @@ sbt ~fastLinkJS
 \* Occasionally, compile errors may occur even when the code is written correctly.  
 If things seem unstable, please try stopping and restarting the process.
 
-```
-npm run dev
-```
+Viteだけを起動したい場合(sbtを別のターミナルで動かす場合など)は `npm run dev:vite` を使います。
+
+To start only Vite (for example, when you run sbt in another terminal), use `npm run dev:vite`.
 
 ## Build
 
